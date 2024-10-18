@@ -1,8 +1,82 @@
+import React, { useEffect, useState } from "react";
+import logo from "../../../assets/images/logo.png";
+
+// react icons
+import { IoIosArrowDown } from "react-icons/io";
+import { FaRegUserCircle } from "react-icons/fa";
+
 const Navbar = () => {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div>
-      <h2>This is Navbar component</h2>
-    </div>
+    <nav
+      className={`${
+        scrolling && "backdrop-blur-lg shadow-md"
+      } shadow-lg sticky top-0 left-0 w-full max-w-[1600px] mx-auto px-32 py-4 items-center justify-between gap-5 z-50 hidden md:flex`}
+    >
+      <img src={logo} alt="logo" className="w-[130px]" />
+      <ul className="flex items-center gap-12 z-50 font-inter text-lg font-medium">
+        <li className=" overflow-hidden hover:overflow-visible group relative">
+          <a href="#Courses" className="flex items-center gap-3">
+            About{" "}
+            <IoIosArrowDown className=" group-hover:rotate-[180deg] transition-all duration-300" />
+          </a>
+
+          <div className="flex flex-col gap-5 w-[250px] shadow-drop p-6 translate-y-[100px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 absolute top-[25px] left-0 bg-[#fff]">
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              About Us
+            </p>
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              Our Location
+            </p>
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              Contact
+            </p>
+          </div>
+        </li>
+        <li className=" overflow-hidden hover:overflow-visible group relative">
+          <a href="#Article" className="flex items-center gap-3">
+            Pricing
+            <IoIosArrowDown className=" group-hover:rotate-[180deg] transition-all duration-300" />
+          </a>
+          <div className="flex flex-col gap-5 w-[250px] shadow-drop p-6 translate-y-[100px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 absolute top-[25px] left-0 bg-[#fff]">
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              Price I
+            </p>
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              Price II
+            </p>
+            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+              Price III
+            </p>
+          </div>
+        </li>
+        <li>
+          <div className="flex items-center content-between gap-2">
+            <FaRegUserCircle className="text-2xl" />
+            <p>Sign In</p>
+          </div>
+        </li>
+
+        <button className="btn rounded-full">Add Listing</button>
+      </ul>
+    </nav>
   );
 };
 
