@@ -6,6 +6,10 @@
 
 @layer components {
   .btn {
-    @apply bg-colorButton text-white font-inter font-semibold text-lg py-3 px-4;
+    @apply bg-colorButton text-white font-inter font-semibold text-lg py-3 px-5 border border-transparent transition-all duration-300 transform;
+  }
+
+  .btn:hover {
+    @apply bg-transparent border-colorButton text-black scale-105 cursor-pointer; /* Hover state with scaling effect */
   }
 }

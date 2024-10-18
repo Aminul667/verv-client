@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../../assets/images/logo.png";
 
 // react icons
 import { IoIosArrowDown } from "react-icons/io";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaHome, FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -39,13 +40,13 @@ const Navbar = () => {
           </a>
 
           <div className="flex flex-col gap-5 w-[250px] shadow-drop p-6 translate-y-[100px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 absolute top-[25px] left-0 bg-[#fff]">
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               About Us
             </p>
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               Our Location
             </p>
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               Contact
             </p>
           </div>
@@ -56,25 +57,28 @@ const Navbar = () => {
             <IoIosArrowDown className=" group-hover:rotate-[180deg] transition-all duration-300" />
           </a>
           <div className="flex flex-col gap-5 w-[250px] shadow-drop p-6 translate-y-[100px] opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 absolute top-[25px] left-0 bg-[#fff]">
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               Price I
             </p>
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               Price II
             </p>
-            <p className="hover:text-brandColor hover:tracking-wider transition-all duration-300 cursor-pointer">
+            <p className="hover:text-textColor hover:tracking-wider transition-all duration-300 cursor-pointer">
               Price III
             </p>
           </div>
         </li>
         <li>
-          <div className="flex items-center content-between gap-2">
+          <div className="flex items-center content-between gap-2 hover:text-textColor transition-all duration-300">
             <FaRegUserCircle className="text-2xl" />
-            <p>Sign In</p>
+            <Link to="/register">Sign In</Link>
           </div>
         </li>
 
-        <button className="btn rounded-full">Add Listing</button>
+        <div className="btn rounded-full flex items-center content-between">
+          <FaHome className="text-xl" />
+          <p className="ml-2">Add Listing</p>
+        </div>
       </ul>
     </nav>
   );
