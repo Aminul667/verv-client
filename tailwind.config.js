@@ -12,6 +12,7 @@ export default {
         cardBlack: "#0F1412",
         colorButton: "#50B533",
         textColorPrimary: "#314660",
+        textColorSecondary: "#56677D",
         textColor: "#449A2B",
         brandColor: "#B37BFF",
       },
