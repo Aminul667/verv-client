@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import starIcon from "../../assets/images/star-icon.svg";
 import iconHeart from "../../assets/images/icon-heart.svg";
 import iconBed from "../../assets/images/icon-bed.svg";
+import iconBath from "../../assets/images/icon-bath.svg";
+import iconSquareMeter from "../../assets/images/icon-square-meter.svg";
 
-const PropertyCard = ({ item }) => {
+const PropertyCard = ({ item }: any) => {
   console.log(item);
 
   const backgroundImageStyle = {
@@ -57,15 +60,16 @@ const PropertyCard = ({ item }) => {
             </span>
           </div>
           <div className="flex justify-center items-center gap-1">
-            <img src={iconBed} alt="iconBed" />
+            <img src={iconBath} alt="iconBed" />
             <span className="text-sm font-normal text-textColorSecondary leading-[120%]">
-              {item.features.beds} Beds
+              {item.features.bathrooms} Bathrooms
             </span>
           </div>
           <div className="flex justify-center items-center gap-1">
-            <img src={iconBed} alt="iconBed" />
+            <img src={iconSquareMeter} alt="iconBed" />
             <span className="text-sm font-normal text-textColorSecondary leading-[120%]">
-              {item.features.beds} Beds
+              {item.features.size.width}x{item.features.size.length} m
+              <sup>2</sup>
             </span>
           </div>
         </div>
