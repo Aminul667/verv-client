@@ -1,11 +1,23 @@
 import Hero from "./Hero";
 import WorkSection from "./WorkSection";
 import popularCardImage from "../../assets/images/popular-card-image.jpg";
+import ellipse1 from "../../assets/images/ellipse-1.png";
+import ellipse2 from "../../assets/images/ellipse-2.png";
+import ellipse3 from "../../assets/images/ellipse-3.png";
+import ellipse4 from "../../assets/images/ellipse-4.png";
+import ellipse5 from "../../assets/images/ellipse-5.png";
+import ellipse6 from "../../assets/images/ellipse-6.png";
+import iconStar from "../../assets/images/icon-star.svg";
+import iconStarWhite from "../../assets/images/icon-star-white.svg";
+import rightEllipse from "../../assets/images/right-ellipse.jpg";
+
 import IProperty from "../../types/home";
 import PropertyCard from "./PropertyCard";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+const imageList = [ellipse2, ellipse3, ellipse4, ellipse5, ellipse6];
 
 const popularCardData: IProperty[] = [
   {
@@ -102,6 +114,93 @@ const Home = () => {
   return (
     <div>
       <Hero />
+
+      {/* below hero section */}
+      <section className="px-24 py-14 flex justify-between items-center">
+        <div className="rounded-[56px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] w-[500px] h-[180px] px-[58px] py-[18px]">
+          <div className="flex justify-between items-center">
+            <div className="flex justify-center items-center">
+              <img src={ellipse1} alt="" />
+              {imageList.map((image) => (
+                <img
+                  key={imageList.indexOf(image)}
+                  src={image}
+                  className="-ml-5"
+                />
+              ))}
+              <p className="-ml-6 text-white">+</p>
+            </div>
+            <div>
+              <h2 className="text-[32px] font-semibold text-textColor leading-[120%%]">
+                72k+
+              </h2>
+              <p className="font-semibold text-textColorSecondary">
+                Happy Customers!
+              </p>
+            </div>
+          </div>
+          <div className="w-[384.003px] h-[1.206px] bg-[#314660] opacity-10 my-4"></div>
+          <div className="flex justify-between items-center">
+            <div>
+              <div className="flex justify-between items-center">
+                <img src={iconStar} alt="iconStar" />
+                <h3 className="text-xl text-[#00AD6F] font-semibold leading-[150%%]">
+                  Trustpilot
+                </h3>
+              </div>
+              <p className="text-[12px] font-semibold text-textColorSecondary text-right">
+                Rated Excellent
+              </p>
+            </div>
+            <div>
+              <div className="flex gap-1">
+                <div className="bg-[#00AD6F] w-[26.555px] h-[26.555px] flex justify-center items-center rounded-[2.213px]">
+                  <img src={iconStarWhite} alt="iconStar" />
+                </div>
+                <div className="bg-[#00AD6F] w-[26.555px] h-[26.555px] flex justify-center items-center rounded-[2.213px]">
+                  <img src={iconStarWhite} alt="iconStar" />
+                </div>
+                <div className="bg-[#00AD6F] w-[26.555px] h-[26.555px] flex justify-center items-center rounded-[2.213px]">
+                  <img src={iconStarWhite} alt="iconStar" />
+                </div>
+                <div className="bg-[#00AD6F] w-[26.555px] h-[26.555px] flex justify-center items-center rounded-[2.213px]">
+                  <img src={iconStarWhite} alt="iconStar" />
+                </div>
+                <div
+                  style={{ backgroundColor: "rgba(0, 173, 111, 0.30)" }}
+                  className="w-[26.555px] h-[26.555px] flex justify-center items-center rounded-[2.213px]"
+                >
+                  <img src={iconStarWhite} alt="iconStar" />
+                </div>
+                <p className="text-xl font-bold text-[#00AD6F]">5</p>
+              </div>
+              <p className="text-[12px] font-semibold text-textColorSecondary">
+                Verified Company - 5% 5-Star Rating
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-[56px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] w-[500px] h-[180px] px-[105px] py-[50px]">
+          <div className="flex justify-between items-center gap-4">
+            <div className="w-[88px] h-[88px]">
+              <img
+                src={rightEllipse}
+                alt="house"
+                className="w-[88px] h-[88px] rounded-full"
+              />
+            </div>
+            <div>
+              <h2 className="text-[32px] font-semibold leading-[120%] text-textColor">
+                200+
+              </h2>
+              <p className="font-semibold text-textColorSecondary">
+                New Listings Everyday!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <WorkSection />
 
       {/* add carusel to the cards and next button*/}
