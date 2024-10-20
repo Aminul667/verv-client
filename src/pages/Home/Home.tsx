@@ -116,7 +116,7 @@ const Home = () => {
       <Hero />
 
       {/* below hero section */}
-      <section className="px-24 py-14 flex justify-between items-center">
+      <section className="px-24 pt-14 flex justify-between items-center">
         <div className="rounded-[56px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] w-[500px] h-[180px] px-[58px] py-[18px]">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center">
