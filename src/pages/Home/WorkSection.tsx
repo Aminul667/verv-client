@@ -39,23 +39,23 @@ const WorkSection = () => {
                 <path
                   d="M42 16.4712V31.5289C42 33.9945 40.6791 36.284 38.5437 37.5388L25.4672 45.0897C23.3318 46.3225 20.6901 46.3225 18.5327 45.0897L5.45625 37.5388C3.32086 36.306 2 34.0165 2 31.5289V16.4712C2 14.0056 3.32086 11.716 5.45625 10.4612L18.5327 2.91026C20.6681 1.67746 23.3098 1.67746 25.4672 2.91026L38.5437 10.4612C40.6791 11.716 42 13.9835 42 16.4712Z"
                   stroke="#449A2B"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M22.0111 21.7988C24.8441 21.7988 27.1404 19.5022 27.1404 16.6693C27.1404 13.8365 24.8441 11.5401 22.0111 11.5401C19.1783 11.5401 16.8818 13.8365 16.8818 16.6693C16.8818 19.5022 19.1783 21.7988 22.0111 21.7988Z"
                   stroke="#449A2B"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M30.8166 34.259C30.8166 30.2964 26.876 27.0823 22.0108 27.0823C17.1456 27.0823 13.2051 30.2964 13.2051 34.259"
                   stroke="#449A2B"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -140,8 +140,8 @@ const WorkSection = () => {
                 y2="70.9973"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#50B533" />
-                <stop offset="1" stop-color="#50B533" stop-opacity="0" />
+                <stop stopColor="#50B533" />
+                <stop offset="1" stopColor="#50B533" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
