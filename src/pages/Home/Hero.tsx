@@ -79,7 +79,7 @@ const Hero = () => {
           <p className="text-red-500 text-sm">{errors.location?.message}</p>
         )}
 
-        <div className="flex items-center content-between gap-3 btn p-2 px-6 rounded-md">
+        <div className="flex items-center content-between gap-3 btn p-2 px-6 rounded-md hover:text-white">
           <IoSearchOutline />
           <button type="submit">Search</button>
         </div>

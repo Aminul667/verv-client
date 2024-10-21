@@ -17,7 +17,7 @@ const PropertyCard = ({ item }: any) => {
   };
 
   return (
-    <div className="w-[384px] rounded-[24px] bg-white shadow-md">
+    <div className="w-[384px] rounded-[24px] bg-white shadow-md mb-1">
       <div
         style={backgroundImageStyle}
         className="w-[384px] h-[200px] rounded-t-[24px] rounded-b-none relative"

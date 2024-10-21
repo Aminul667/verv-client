@@ -10,8 +10,8 @@ const MainLayout = () => {
         {/* <Navbar /> */}
         {/* <MobileNav /> */}
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

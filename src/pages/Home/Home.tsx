@@ -1,3 +1,7 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Hero from "./Hero";
 import WorkSection from "./WorkSection";
 import popularCardImage from "../../assets/images/popular-card-image.jpg";
@@ -16,6 +20,57 @@ import PropertyCard from "./PropertyCard";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+// carousel check
+const PreviousArrow = ({ className, style, onClick }) => {
+  return (
+    <div
+      className="z-10 left-[calc(50%-50px)] absolute -bottom-14 transform translate-x-full bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-full p-2 cursor-pointer"
+      onClick={onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6 text-gray-800"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </div>
+  );
+};
+
+const NextArrow = ({ onClick }) => {
+  return (
+    <div
+      className="absolute -bottom-14 right-[calc(50%-50px)] transform translate-x-full bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-full p-2 cursor-pointer"
+      onClick={onClick}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </div>
+  );
+};
+
+// end carousel check
 
 const imageList = [ellipse2, ellipse3, ellipse4, ellipse5, ellipse6];
 
@@ -86,6 +141,28 @@ const popularCardData: IProperty[] = [
     },
     image: popularCardImage,
   },
+  {
+    id: 3,
+    title: "Palm Harbor",
+    address: {
+      street: "2699 Green Valley",
+      city: "Highland Lake",
+      state: "FL",
+    },
+    pricePerMonth: 2095,
+    currency: "GBP",
+    status: "POPULAR",
+    features: {
+      beds: 3,
+      bathrooms: 2,
+      size: {
+        width: 5,
+        length: 7,
+        unit: "m²",
+      },
+    },
+    image: popularCardImage,
+  },
 ];
 
 // Zod schema for form validation
@@ -99,6 +176,16 @@ interface emailSubmitFormInputs {
 }
 
 const Home = () => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    prevArrow: <PreviousArrow />,
+    nextArrow: <NextArrow />,
+  };
+
   // react-hook-form using Zod validation
   const {
     register,
@@ -225,10 +312,13 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          {popularCardData.map((item) => (
-            <PropertyCard key={item.id} item={item} />
-          ))}
+        {/* flex justify-between items-center */}
+        <div className="">
+          <Slider {...settings} className="flex items-center justify-center">
+            {popularCardData.map((item) => (
+              <PropertyCard key={item.id} item={item} />
+            ))}
+          </Slider>
         </div>
       </section>
 
