@@ -39,6 +39,9 @@ const Hero = () => {
   // Handle form submission with typed data
   const onSubmit: SubmitHandler<SearchFormInputs> = (data) => {
     console.log(data);
+    if (errors.location) {
+      alert(errors.location?.message);
+    }
   };
 
   return (
