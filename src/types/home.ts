@@ -16,7 +16,7 @@ interface IFeatures {
   size: ISize;
 }
 
-interface IProperty {
+export interface IProperty {
   id: number;
   title: string;
   address: IAddress;
@@ -27,4 +27,8 @@ interface IProperty {
   image: string;
 }
 
-export default IProperty;
+// interface for the form inputs
+export interface ISearchFormInputs {
+  transactionType: "rent" | "buy";
+  location: string;
+}

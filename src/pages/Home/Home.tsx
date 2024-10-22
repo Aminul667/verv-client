@@ -15,117 +15,29 @@ import iconStar from "../../assets/images/icon-star.svg";
 import iconStarWhite from "../../assets/images/icon-star-white.svg";
 import rightEllipse from "../../assets/images/right-ellipse.jpg";
 
-import IProperty from "../../types/home";
 import PropertyCard from "./PropertyCard";
-import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { NextArrow, PreviousArrow } from "../../utils/Arrows";
+import { IProperty } from "../../types/home";
+import { useLoaderData } from "react-router-dom";
+import {
+  emailSubmitFormInputsSchema,
+  emailSubmitSchema,
+} from "../../utils/schema";
 
 const imageList = [ellipse2, ellipse3, ellipse4, ellipse5, ellipse6];
 
-const popularCardData: IProperty[] = [
-  {
-    id: 1,
-    title: "Palm Harbor",
-    address: {
-      street: "2699 Green Valley",
-      city: "Highland Lake",
-      state: "FL",
-    },
-    pricePerMonth: 2095,
-    currency: "GBP",
-    status: "POPULAR",
-    features: {
-      beds: 3,
-      bathrooms: 2,
-      size: {
-        width: 5,
-        length: 7,
-        unit: "m²",
-      },
-    },
-    image: popularCardImage,
-  },
-  {
-    id: 2,
-    title: "Palm Harbor",
-    address: {
-      street: "2699 Green Valley",
-      city: "Highland Lake",
-      state: "FL",
-    },
-    pricePerMonth: 2095,
-    currency: "GBP",
-    status: "POPULAR",
-    features: {
-      beds: 3,
-      bathrooms: 2,
-      size: {
-        width: 5,
-        length: 7,
-        unit: "m²",
-      },
-    },
-    image: popularCardImage,
-  },
-  {
-    id: 3,
-    title: "Palm Harbor",
-    address: {
-      street: "2699 Green Valley",
-      city: "Highland Lake",
-      state: "FL",
-    },
-    pricePerMonth: 2095,
-    currency: "GBP",
-    status: "POPULAR",
-    features: {
-      beds: 3,
-      bathrooms: 2,
-      size: {
-        width: 5,
-        length: 7,
-        unit: "m²",
-      },
-    },
-    image: popularCardImage,
-  },
-  {
-    id: 3,
-    title: "Palm Harbor",
-    address: {
-      street: "2699 Green Valley",
-      city: "Highland Lake",
-      state: "FL",
-    },
-    pricePerMonth: 2095,
-    currency: "GBP",
-    status: "POPULAR",
-    features: {
-      beds: 3,
-      bathrooms: 2,
-      size: {
-        width: 5,
-        length: 7,
-        unit: "m²",
-      },
-    },
-    image: popularCardImage,
-  },
-];
-
-// Zod schema for form validation
-const emailSubmitSchema = z.object({
-  email: z.string().min(1, "Email is required"),
-});
-
-// interface for the form inputs
-interface emailSubmitFormInputs {
-  email: string;
-}
-
 const Home = () => {
+  const popularCardData = useLoaderData() as IProperty[];
+
+  const updatePopularCardData = popularCardData.map((item: IProperty) => ({
+    ...item,
+    image: item.image === "imagePath" ? popularCardImage : item.image,
+  }));
+
+  console.log(updatePopularCardData);
+
   const settings = {
     dots: false,
     infinite: false,
@@ -141,13 +53,14 @@ const Home = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<emailSubmitFormInputs>({
+  } = useForm<emailSubmitFormInputsSchema>({
     resolver: zodResolver(emailSubmitSchema),
   });
 
-  const onSubmit: SubmitHandler<emailSubmitFormInputs> = (data) => {
+  const onSubmit: SubmitHandler<emailSubmitFormInputsSchema> = (data) => {
     console.log(data);
   };
+
   return (
     <div>
       <Hero />

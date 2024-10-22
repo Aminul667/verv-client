@@ -1,20 +1,9 @@
-import { z } from "zod";
 import heroImage from "../../assets/images/hero-image.png";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IoSearchOutline } from "react-icons/io5";
-
-// Zod schema for form validation
-const searchSchema = z.object({
-  transactionType: z.enum(["rent", "buy"]),
-  location: z.string().min(1, "Location is required"),
-});
-
-// interface for the form inputs
-interface SearchFormInputs {
-  transactionType: "rent" | "buy";
-  location: string;
-}
+import { searchSchema } from "../../utils/schema";
+import { ISearchFormInputs } from "../../types/home";
 
 const Hero = () => {
   const backgroundImageStyle = {
@@ -27,17 +16,17 @@ const Hero = () => {
     height: "600px",
   };
 
-  // react-hook-form using Zod validation
+  // form using Zod validation
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SearchFormInputs>({
+  } = useForm<ISearchFormInputs>({
     resolver: zodResolver(searchSchema),
   });
 
   // Handle form submission with typed data
-  const onSubmit: SubmitHandler<SearchFormInputs> = (data) => {
+  const onSubmit: SubmitHandler<ISearchFormInputs> = (data) => {
     console.log(data);
     if (errors.location) {
       alert(errors.location?.message);
