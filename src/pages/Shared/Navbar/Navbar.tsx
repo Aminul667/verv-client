@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav
       className={`${
         scrolling && "backdrop-blur-lg shadow-md"
-      } shadow-lg sticky top-0 left-0 w-full max-w-[1600px] mx-auto  py-4 z-50`}
+      } shadow-lg sticky top-0 left-0 w-full mx-auto  py-4 z-50`}
     >
       <div className="items-center justify-between gap-5 md:flex max-w-[1216px] m-auto">
         <img src={logo} alt="logo" className="w-[130px]" />
