@@ -66,7 +66,7 @@ const Home = () => {
       <Hero />
 
       {/* below hero section */}
-      <section className="px-24 pt-14 flex justify-between items-center">
+      <section className="px-24 pt-14 flex justify-between items-center font-inter max-w-[1216px] m-auto">
         <div className="rounded-[56px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] w-[500px] h-[180px] px-[58px] py-[18px]">
           <div className="flex justify-between items-center">
             <div className="flex justify-center items-center">
@@ -154,7 +154,7 @@ const Home = () => {
       <WorkSection />
 
       {/* add carusel to the cards and next button*/}
-      <section className="mt-[100px]">
+      <section className="mt-[100px] font-inter max-w-[1216px] m-auto">
         <h3 className="text-xl font-semibold text-textColor mb-4">
           PROPERTIES IN DEMAND
         </h3>
@@ -186,7 +186,7 @@ const Home = () => {
       </section>
 
       {/* are you a land lord */}
-      <section className="mt-[100px] bg-[#D5EDCE] shadow-[0px_4px_200px_0px_rgba(232,249,247,0.20)] -mx-36 py-20 flex items-center justify-center">
+      <section className="font-inter w-full mt-[100px] bg-[#D5EDCE] shadow-[0px_4px_200px_0px_rgba(232,249,247,0.20)] py-20 flex items-center justify-center">
         <div>
           <div className="text-center">
             <p className="text-xl font-semibold leading-[120%] text-textColor">

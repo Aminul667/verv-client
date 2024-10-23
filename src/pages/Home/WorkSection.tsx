@@ -14,7 +14,7 @@ const WorkSection = () => {
   // };
 
   return (
-    <section className="mx-auto mt-[100px]">
+    <section className="font-inter max-w-[1216px] mx-auto mt-[100px]">
       <div className="flex items-center justify-between">
         <div className="w-[520px]">
           <h3 className="text-textColor font-semibold text-2xl leading-6 mb-4">

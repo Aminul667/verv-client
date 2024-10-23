@@ -1,9 +1,11 @@
-// load the data from the local directory
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import popularProperty from "../assets/data/popularProperty.json";
+
 export const fetchDataLoader = async () => {
-  const response = await fetch("../../public/data/popularProperty.json");
-  if (!response.ok) {
+  try {
+    const data = await Promise.resolve(popularProperty); // simulating fetch
+    return data;
+  } catch (error) {
     throw new Error("Failed to load data");
   }
-  const data = await response.json();
-  return data;
 };
